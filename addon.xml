@@ -1,0 +1,9 @@
+<addon id="search.addon.settings"
+      name="Smart Search"
+      version="1.0.0"
+      provider-name="idealkooks"
+      summary="Searches through all add-ons and their settings"
+      description="This add-on allows you to search all installed add-ons and their settings in Kodi."
+      skin="Default">
+  <extension point="xbmc.python.script" library="plugin.py"/>
+</addon>
