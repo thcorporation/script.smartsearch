@@ -3,14 +3,18 @@ import xbmcaddon
 import xbmcgui
 import os
 import json
+import xbmcvrapi
 
 # Get the list of installed add-ons
 def get_installed_addons():
     addon_paths = []
-    for root, dirs, files in os.walk(xbmc.translatePath('special://home/addons/')):
-        for file in files:
-            if file.endswith('.zip'):
-                addon_paths.append(os.path.join(root, file))
+    # Get the Kodi addon manager
+    addon_manager = xbmcvrapi.AddonManager()
+    # Get a list of all installed addons
+    installed_addons = addon_manager.get_addons()
+    for addon in installed_addons:
+        addon_path = addon.getAddonPath()
+        addon_paths.append(addon_path)
     return addon_paths
 
 # Function to search addon settings
